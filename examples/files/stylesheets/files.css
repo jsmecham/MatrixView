@@ -1,0 +1,64 @@
+body
+{
+  background-color: #ddd;
+  font-family: Tahoma;
+  font-size: smaller;
+}
+
+div#matrixView
+{
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  right: 15px;
+  bottom: 55px;
+  border: 1px solid #aaa;
+  background-color: white;
+  overflow: auto;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+}
+
+div#matrixView ul
+{
+  margin: 10px;
+  padding: 0px;
+  list-style: none;
+}
+
+div#matrixView ul li
+{
+  float: left;
+  margin: 10px;
+  padding: 5px;
+  width: 96px;
+  min-height: 128px;
+}
+
+div#matrixView ul li img
+{
+  padding: 8px;
+}
+
+div#matrixView ul li:active,
+div#matrixView ul li.selected
+{
+}
+
+div#matrixView ul li.selected img {
+  background-color: #6daef3;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+}
+
+div#statusBar
+{
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  left: 15px;
+  padding: 6px 10px 6px 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #aaa;
+  color: #555;
+  font-size: 85%;
+}

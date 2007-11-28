@@ -1,0 +1,95 @@
+body
+{
+/*  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+*/
+  margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  font-family: Trebuchet MS;
+}
+
+h1
+{
+  background-image: url('../images/logo.png');
+  background-repeat: no-repeat;
+  background-position: middle left;
+  color: white;
+  margin: 0px;
+  display: inline;
+  padding: 6px;
+  padding-left: 64px;
+  line-height: 94px;
+}
+
+h2
+{
+  margin-top: 50px;
+  line-height: 32px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+div, p, li, th, td
+{
+  line-height: 180%;
+  font-size: 95%;
+  font-family: Lucida Grande, Tahoma;
+}
+
+p
+{
+  margin: 10px;
+}
+
+div#header
+{
+  background-image: url('../images/header.png');
+  text-align: center;
+}
+
+div#main
+{
+  margin: 50px;
+}
+
+table#options
+{
+  border: 1px solid #aaa;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table#options td,
+table#options th
+{
+  border: 1px solid #aaa;
+  padding: 4px;
+}
+
+table#options th
+{
+  background-color: #efefef;
+}
+
+table#options tr.even
+{
+  background-color: #efefef;
+}
+
+ul#features
+{
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+ul#features li
+{
+  margin: 10px;
+}

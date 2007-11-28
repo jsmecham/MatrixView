@@ -1,0 +1,14 @@
+Bugs:
+
+  - Shift-select left then right should behave like Finder (maybe)
+
+Wishlist:
+
+  - Clean up and abstract where it makes sense
+  - Create a RoR plugin/helper for instantiating this with configuration
+
+Examples:
+
+  - Create a drag and drop example
+  - Create a scaling example
+

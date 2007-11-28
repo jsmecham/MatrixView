@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>
+      Photo Gallery Example — JavaScript MatrixView
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="stylesheets/gallery.css" type="text/css" />
+	<script src="/mint/?js" type="text/javascript"></script>
+    <script src="../../javascripts/prototype.js" type="text/javascript"></script>
+    <script src="../../javascripts/effects.js" type="text/javascript"></script>
+    <script src="../../javascripts/matrixview.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      Event.observe(window, 'load',
+        function() {
+          matrixView = new MatrixView(
+            $('matrixView'),
+            {
+
+              selectHandler : function(photos) {
+                selectedItems = window.matrixView.selectedItems.size()
+                totalItems    = window.matrixView.element.getElementsBySelector('li').size()
+                if (totalItems > 1)
+                  $('statusBar').update(selectedItems + ' of ' + totalItems + ' Photos')
+                else
+                  $('statusBar').update(selectedItems + ' of ' + totalItems + ' Photo')
+              },
+
+              deselectHandler : function() {
+                totalItems = window.matrixView.element.getElementsBySelector('li').size()
+                if (totalItems > 1)
+                  $('statusBar').update(totalItems + ' Photos')
+                else
+                  $('statusBar').update(totalItems + ' Photo')
+              },
+
+              openHandler : function(element) {
+                alert('No openHandler defined!')
+              }
+
+            }
+          )
+
+          totalItems = window.matrixView.element.getElementsBySelector('li').size()
+          if (totalItems > 1)
+            $('statusBar').update(totalItems + ' Photos')
+          else
+            $('statusBar').update(totalItems + ' Photo')
+
+        }
+      )
+    </script>
+  </head>
+  <body>
+
+    <div id="matrixView">
+      <div id="overlay" style="display: none"></div>
+      <div id="preview" style="display: none"></div>
+      <ul>
+        <li id="142226979"><img src="images/thumbnails/142226979.jpg" height="125" width="175" /></li>
+        <li id="233472093"><img src="images/thumbnails/233472093.jpg" height="125" width="175" /></li>
+        <li id="439916543"><img src="images/thumbnails/439916543.jpg" height="125" width="175" /></li>
+        <li id="469167953"><img src="images/thumbnails/469167953.jpg" height="125" width="175" /></li>
+        <li id="2604474"><img src="images/thumbnails/2604474.jpg" height="125" width="175" /></li>
+        <li id="153640294"><img src="images/thumbnails/153640294.jpg" height="125" width="175" /></li>
+        <li id="393879108"><img src="images/thumbnails/393879108.jpg" height="125" width="175" /></li>
+        <li id="401781673"><img src="images/thumbnails/401781673.jpg" height="125" width="175" /></li>
+        <li id="125042241"><img src="images/thumbnails/125042241.jpg" height="125" width="175" /></li>
+        <li id="50209004"><img src="images/thumbnails/50209004.jpg" height="125" width="175" /></li>
+        <li id="175532290"><img src="images/thumbnails/175532290.jpg" height="125" width="175" /></li>
+        <li id="102588928"><img src="images/thumbnails/102588928.jpg" height="125" width="175" /></li>
+        <li id="370467465"><img src="images/thumbnails/370467465.jpg" height="125" width="175" /></li>
+        <li id="188520673"><img src="images/thumbnails/188520673.jpg" height="125" width="175" /></li>
+        <li id="510114651"><img src="images/thumbnails/510114651.jpg" height="125" width="175" /></li>
+        <li id="539714685"><img src="images/thumbnails/539714685.jpg" height="125" width="175" /></li>
+      </ul>
+    </div>
+
+    <div id="statusBar">
+      Nothing selected
+    </div>
+
+  </body>
+</html>
