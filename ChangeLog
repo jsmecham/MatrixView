@@ -1,3 +1,12 @@
+*1.0.1* (November 27th, 2007)
+
+ - Fixed an issue with the examples and documentation that prevented Internet
+   Explorer from initializing the MatrixView.
+
+ - Replaced the images that were being used in the Photo Gallery example, as
+   the ones used previously are no longer covered under a Creative Commons
+   license. This change was also retroactively applied to the 1.0.0 package.
+
 *1.0.0* (November 16th, 2007)
 
  - Initial Release
