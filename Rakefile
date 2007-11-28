@@ -1,7 +1,7 @@
 require 'rake'
 require 'rake/packagetask'
 
-MATRIX_VIEW_VERSION  = '1.0.0'
+MATRIX_VIEW_VERSION  = '1.0.1'
 
 task :default => [ :package ]
 
