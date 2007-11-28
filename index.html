@@ -24,7 +24,7 @@
     </div>
 
     <div id="main">
-      
+
       <p>
         MatrixView is a JavaScript library that enables web application developers to easily and unobtrusively add rich
         functionality to standard HTML unordered lists, such as keyboard navigation and mouse selection. It is great
@@ -71,6 +71,27 @@
           </span>
         </li>
       </ul>
+
+      <div id="recommended_reading">
+        <h3>
+          Recommended Reading
+        </h3>
+        <!-- Prototype & Scriptaculous in Action -->
+        <a href="http://www.amazon.com/gp/product/1933988037?ie=UTF8&tag=matrixview-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1933988037">
+          <img border="0" src="http://ecx.images-amazon.com/images/I/214sLzKr1cL._AA_SL160_.jpg" width="128" height="160" alt="Prototype &amp; Scriptaculous in Action" />
+        </a>
+        <img src="http://www.assoc-amazon.com/e/ir?t=matrixview-20&l=as2&o=1&a=1933988037" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+        <!-- Prototype and script.aculo.us -->
+        <a href="http://www.amazon.com/gp/product/1934356018?ie=UTF8&tag=matrixview-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1934356018">
+          <img border="0" src="http://ecx.images-amazon.com/images/I/21eCm27x3yL._AA_SL160_.jpg" width="128" height="160" alt="Prototype and script.aculo.us" />
+        </a>
+        <img src="http://www.assoc-amazon.com/e/ir?t=matrixview-20&l=as2&o=1&a=1934356018" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+        <!-- Practical Prototype and script.aculo.us -->
+        <a href="http://www.amazon.com/gp/product/1590599195?ie=UTF8&tag=matrixview-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1590599195">
+          <img border="0" src="http://ecx.images-amazon.com/images/I/21jLEH7u2LL._AA_SL160_.jpg" width="128" height="160" alt="Practical Prototype and script.aculo.us" />
+        </a>
+        <img src="http://www.assoc-amazon.com/e/ir?t=matrixview-20&l=as2&o=1&a=1590599195" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+      </div>
 
       <h2 style="background-image: url('images/examples.png')">
         Examples
@@ -228,51 +249,50 @@
           Example
         </h4>
         <code>
-  <pre>
-    &lt;html&gt;
-      &lt;head&gt;
-        ...
-        &lt;script type="text/javascript" href="matrixview.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript"&gt;
-          window.onload = function() {
+<pre>
+  &lt;html&gt;
+    &lt;head&gt;
+      ...
+      &lt;script type="text/javascript" href="matrixview.js"&gt;&lt;/script&gt;
+      &lt;script type="text/javascript"&gt;
+        window.onload = function() {
 
-            var matrixView = new MatrixView(
-              $('matrixView'),
-              {
-  
-                selectHandler : function(photos) {
-                  selectedItems = window.matrixView.selectedItems.size()
-                  totalItems    = window.matrixView.element.getElementsBySelector('li').size()
-                  if (totalItems > 1)
-                    $('statusBar').update(selectedItems + ' of ' + totalItems + ' Photos')
-                  else
-                    $('statusBar').update(selectedItems + ' of ' + totalItems + ' Photo')
-                },
-  
-                deselectHandler : function() {
-                  totalItems = window.matrixView.element.getElementsBySelector('li').size()
-                  if (totalItems > 1)
-                    $('statusBar').update(totalItems + ' Photos')
-                  else
-                    $('statusBar').update(totalItems + ' Photo')
-                },
-  
-                openHandler : function(element) {
-                  alert('No openHandler defined.')
-                }
+          var matrixView = new MatrixView(
+            $('matrixView'),
+            {
 
+              selectHandler : function(photos) {
+                selectedItems = window.matrixView.selectedItems.size()
+                totalItems    = window.matrixView.element.getElementsBySelector('li').size()
+                if (totalItems > 1)
+                  $('statusBar').update(selectedItems + ' of ' + totalItems + ' Photos')
+                else
+                  $('statusBar').update(selectedItems + ' of ' + totalItems + ' Photo')
+              },
+
+              deselectHandler : function() {
+                totalItems = window.matrixView.element.getElementsBySelector('li').size()
+                if (totalItems > 1)
+                  $('statusBar').update(totalItems + ' Photos')
+                else
+                  $('statusBar').update(totalItems + ' Photo')
+              },
+
+              openHandler : function(element) {
+                alert('No openHandler defined.')
               }
-            )
-          }
-        &lt;/script&gt;
-        ...
-      &lt;/head&gt;
-      &lt;body&gt;
-        ...
-      &lt;/body&gt;
-    &lt;/html&gt;
-  </pre>
 
+            }
+          )
+        }
+      &lt;/script&gt;
+      ...
+    &lt;/head&gt;
+    &lt;body&gt;
+      ...
+    &lt;/body&gt;
+  &lt;/html&gt;
+</pre>
         </code>
       </div>
     </div>
