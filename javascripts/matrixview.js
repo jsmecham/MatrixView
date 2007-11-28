@@ -1,5 +1,5 @@
 //
-// MatrixView 1.0.1
+// MatrixView 1.0.2-dev
 //
 // For more information on this library, please see http://www.matrixview.org/.
 //
