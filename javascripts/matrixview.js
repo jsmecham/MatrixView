@@ -95,11 +95,10 @@ MatrixView.prototype = {
           if (window.matrixView.selectedItems.size() == 1)
             window.matrixView.open(window.matrixView.selectedItems.first())
         }
-        if (event.keyCode == Event.KEY_BACKSPACE) // Delete/Backspace
+        if (event.keyCode == Event.KEY_BACKSPACE || event.keyCode == Event.KEY_DELETE || event.keyCode == 63272) // Delete/Backspace
         {
-          // FIXME delete is a reserved word, need to rename this
-          // window.matrixView.delete(window.matrixView.selectedItems)
-          // event.stop()
+          window.matrixView.destroy(window.matrixView.selectedItems)
+          event.stop()
         }
         if (event.keyCode == Event.KEY_LEFT || event.keyCode == 63234) // Left Arrow
           window.matrixView.moveLeft(event)
@@ -252,12 +251,12 @@ MatrixView.prototype = {
       this.openHandler(element)
   },
 
-  // delete: function(elements)
-  // {
-  //   // If a custom open handler has been defined, call it
-  //   if (this.deleteHandler != null)
-  //     this.deleteHandler(elements)
-  // },
+  destroy: function(elements)
+  {
+    // If a custom open handler has been defined, call it
+    if (this.deleteHandler != null)
+      this.deleteHandler(elements)
+  },
 
   selectAll: function()
   {

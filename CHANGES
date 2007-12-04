@@ -1,5 +1,10 @@
 *1.0.2* (Not Released)
 
+ - The deleteHandler now works as expected. Turns out "delete" is a reserved
+   word in JavaScript, so the internal delete function was renamed to destroy.
+   Also added listeners for the standard delete key code as well as Safari's
+   crazy delete key code.
+
  - 
 
 *1.0.1* (November 27th, 2007)
