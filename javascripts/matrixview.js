@@ -1,9 +1,9 @@
 //
-// MatrixView 1.0.2-dev
+// MatrixView 1.1.0-dev
 //
 // For more information on this library, please see http://www.matrixview.org/.
 //
-// Copyright (c) 2007 Justin Mecham <justin@aspect.net>
+// Copyright (c) 2007-2008 Justin Mecham <justin@aspect.net>
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -52,6 +52,9 @@ MatrixView.prototype = {
 
     window.matrixView    = this
 
+    // Add selection overlay to the view
+    element.insert('<div id="selectionArea" style="display: none"></div>')
+
     // Observe keys
     Event.observe(document, 'keypress',
       function(event)
@@ -60,7 +63,7 @@ MatrixView.prototype = {
         // Meta/Control
         if (event.metaKey)
         {
-          if (event.keyCode == 65) // Shift-A (Select All)
+          if (event.keyCode == 97 || event.keyCode == 65) // Shift-A (Select All)
           {
             window.matrixView.selectAll()
             event.stop()
@@ -138,13 +141,9 @@ MatrixView.prototype = {
         element = Event.element(event)
 
         // For Safari, since it passes thru clicks on the scrollbar, exclude 15 pixels from the click area
-        if (Prototype.Browser.WebKit)
-        {
-//          dimensions = window.matrixView.element.getDimensions
-          if (window.matrixView.element.scrollHeight > window.matrixView.element.getHeight())
-          {
-            if (Event.pointerX(event) > (window.matrixView.element.getWidth() + Position.cumulativeOffset(window.matrixView.element)[0] - 15))
-            {
+        if (Prototype.Browser.WebKit) {
+          if (window.matrixView.element.scrollHeight > window.matrixView.element.getHeight()) {
+            if (Event.pointerX(event) > (window.matrixView.element.getWidth() + Position.cumulativeOffset(window.matrixView.element)[0] - 15)) {
               event.stop()
               return
             }
@@ -157,7 +156,93 @@ MatrixView.prototype = {
         else
           window.matrixView.deselectAll()
 
+        window.dragging = true
+        window.originX = event.pointerX()
+        window.originY = event.pointerY()
+        $('selectionArea').setStyle({ width:'0px', height:'0px', left:event.pointerX() - window.matrixView.element.cumulativeOffset()[0], top:event.pointerY() - window.matrixView.element.cumulativeOffset()[1] })
+
         event.preventDefault()
+      }
+    )
+
+    Event.observe(element, 'mouseup',
+      function(event) {
+        window.dragging = false
+        $('selectionArea').hide()
+        $('selectionArea').setStyle({ width:'0px', height:'0px' })
+        event.stop()
+        if (window.matrixView.selectHandler != null)
+          window.matrixView.selectHandler(window.matrixView.selectedItems)
+      }
+    )
+
+    Event.observe(element, 'mousemove',
+      function(event) {
+        if (window.dragging)
+        {
+          if (!$('selectionArea').visible()) $('selectionArea').show()
+
+          var top, left
+          var width  = event.pointerX() - window.originX
+          var height = event.pointerY() - window.originY
+
+          if (width < 0)
+          {
+            width = -width
+            left = event.pointerX()
+          }
+          else
+          {
+            left = window.originX
+          }
+
+          if (height < 0)
+          {
+            height = -height
+            top = event.pointerY()
+          }
+          else
+          {
+            top = window.originY
+          }
+
+          left = left - window.matrixView.element.cumulativeOffset()[0]
+          top  = top  - window.matrixView.element.cumulativeOffset()[1]
+
+          $('selectionArea').setStyle({
+            left: left + 'px',
+            top: top + 'px',
+            width: width + 'px',
+            height: height + 'px'
+          })
+
+          window.matrixView.element.getElementsBySelector('li').each(
+            function(element)
+            {
+              offset = element.cumulativeOffset()
+              dimensions = element.getDimensions()
+              left = offset.left
+              top = offset.top
+              right = left + dimensions.width
+              bottom = top + dimensions.height
+              if (Position.within($('selectionArea'), left, top) ||
+                  Position.within($('selectionArea'), right, top) ||
+                  Position.within($('selectionArea'), left, bottom) ||
+                  Position.within($('selectionArea'), right, bottom))
+              {
+                element.addClassName('selected')
+                if (window.matrixView.selectedItems.indexOf(element) == -1)
+                  window.matrixView.selectedItems.push(element)
+              }
+              else
+              {
+                window.matrixView.selectedItems[window.matrixView.selectedItems.indexOf(element)] = null
+                element.removeClassName('selected')
+              }
+            }
+          )
+
+        }
       }
     )
 

@@ -1,7 +1,7 @@
 body
 {
-  background-color: #ddd;
-  font-family: Tahoma;
+  background-color: #dddddd;
+  font-family: Tahoma, sans-serif;
   font-size: smaller;
 }
 
@@ -16,6 +16,8 @@ div#matrixView
   background-color: white;
   overflow: auto;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+	-webkit-user-select: none;
+	-moz-user-select: none;
 }
 
 div#matrixView ul
@@ -31,7 +33,7 @@ div#matrixView ul li
   margin: 10px;
   padding: 5px;
   width: 96px;
-  min-height: 128px;
+  min-height: 110px;
 }
 
 div#matrixView ul li img
@@ -61,4 +63,32 @@ div#statusBar
   border: 1px solid #aaa;
   color: #555;
   font-size: 85%;
+}
+
+div#infoHeader
+{
+  background-color: #efefef;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+div#infoHeader h1 {
+  margin: 0px 0px 10px 0px;
+  font-size: 135%;
+  font-family: Trebuchet MS, Tahoma, sans-serif;
+}
+
+div#infoHeader p {
+  margin: 0px;
+}
+
+div#selectionArea {
+  background-color: #336699;
+  border: 1px solid black;
+  opacity: 0.25;
+  height: 0px;
+  width: 0px;
+  top: 0px;
+  left: 0px;
+  position: absolute;
 }

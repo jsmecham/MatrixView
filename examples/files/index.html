@@ -8,7 +8,7 @@
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="stylesheets/files.css" type="text/css" />
-	<script src="/mint/?js" type="text/javascript"></script>
+    <script src="/mint/?js" type="text/javascript"></script>
     <script src="../../javascripts/prototype.js" type="text/javascript"></script>
     <script src="../../javascripts/matrixview.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -36,11 +36,11 @@
               },
 
               openHandler : function(element) {
-                alert('opening')
+                alert('You can define a custom JavaScript function to be called when the user tries to "open" an item from your list by defining the openHandler callback.')
               },
 
               deleteHandler : function(element) {
-                alert('No deleteHandler defined!')
+                alert('You can define a custom JavaScript function to be called when the user tries to delete an item from your list by defining the deleteHandler callback.')
               }
 
             }
@@ -57,9 +57,18 @@
     </script>
   </head>
   <body>
-
     <div id="matrixView">
-      <div id="overlay" style="display: none"></div>
+      <div id="infoHeader">
+        <h1>
+          File Browser Example
+        </h1>
+        <p>
+          This example illustrates the use of <a href="../../">MatrixView</a>, a JavaScript library that brings
+          selection capabilities to standard HTML lists, in a file browser context. To see what MatrixView is capable
+          of, try selecting the items below with your keyboard and mouse, just like you would in the Finder or Windows
+          Explorer.
+        </p>
+      </div>
       <ul>
         <li style="text-align: center">
           <img src="images/go-home.png" height="48" width="48" />
