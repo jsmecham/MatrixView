@@ -1,7 +1,7 @@
 require 'rake'
 require 'rake/packagetask'
 
-MATRIX_VIEW_VERSION  = '1.0.2'
+MATRIX_VIEW_VERSION  = '1.0.3-dev'
 
 task :default => [ :package ]
 
@@ -12,8 +12,6 @@ Rake::PackageTask.new('matrixview', MATRIX_VIEW_VERSION) do |package|
     'examples/**/**',
     'javascripts/**',
     'stylesheets/**',
-    'images/**',
-    'index.html',
     'LICENSE',
     'CHANGES',
     'TODO'

@@ -1,3 +1,7 @@
+*1.0.3* (Not Released)
+
+ - 
+
 *1.0.2* (February 12th, 2008)
 
  - The deleteHandler now works as expected. Turns out "delete" is a reserved
