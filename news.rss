@@ -4,14 +4,20 @@
     <title>MatrixView News &amp; Announcements</title>
     <link>http://www.matrixview.org/</link>
     <description>General news and release announcements for the MatrixView JavaScript library.</description>
-    <generator>Feeder 1.4.9.v2 http://reinventedsoftware.com/feeder/</generator>
+    <generator>Feeder 1.5(356) http://reinventedsoftware.com/feeder/</generator>
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
     <language>en</language>
     <webMaster>Justin Mecham</webMaster>
-    <pubDate>Tue, 04 Dec 2007 12:48:32 -0500</pubDate>
-    <lastBuildDate>Tue, 04 Dec 2007 12:48:32 -0500</lastBuildDate>
-    
-    <atom:link href="http://www.matrixview.org/news.rss" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 12 Feb 2008 13:26:55 -0500</pubDate>
+    <lastBuildDate>Tue, 12 Feb 2008 13:26:55 -0500</lastBuildDate>
+    <item>
+      <title>MatrixView 1.0.2 Released</title>
+      <link>http://www.matrixview.org/</link>
+      <description><![CDATA[I've just posed a new release of MatrixView which fixes an issue with the delete callback not being called.  This will likely be the last 1.0 release before the drag selection work that is going into 1.1.]]></description>
+      <pubDate>Tue, 12 Feb 2008 14:00:36 -0500</pubDate>
+      <guid isPermaLink="false">matrixview-102-released</guid>
+      <dc:creator>Justin Mecham</dc:creator>
+    </item>
     <item>
       <title>Initial release of MatrixView</title>
       <link>http://www.matrixview.org/</link>
