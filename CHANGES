@@ -1,6 +1,11 @@
-*1.0.3* (Not Released)
+*1.0.3* (March 27th, 2008)
 
- - 
+ - Fixed some issues with scoping that could have led to unintended behavior
+   on pages that had other HTML unordered lists that were not being managed by
+   MatrixView.
+
+ - Fixed an issue with a recent change that went into the Safari 3.1 release
+   that prevented the arrow keys from being detected when they were pressed.
 
 *1.0.2* (February 12th, 2008)
 

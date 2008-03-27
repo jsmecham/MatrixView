@@ -1,9 +1,9 @@
 //
-// MatrixView 1.0.3-dev
+// MatrixView 1.0.3
 //
 // For more information on this library, please see http://www.matrixview.org/.
 //
-// Copyright (c) 2007 Justin Mecham <justin@aspect.net>
+// Copyright (c) 2007-2008 Justin Mecham <justin@aspect.net>
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -53,7 +53,7 @@ MatrixView.prototype = {
     window.matrixView    = this
 
     // Observe keys
-    Event.observe(document, 'keypress',
+    Event.observe(document, 'keydown',
       function(event)
       {
 
@@ -232,7 +232,7 @@ MatrixView.prototype = {
     // Single Selection (Single Click)
     else
     {
-      $$('li.selected').invoke('removeClassName', 'selected')
+      $$('#' + this.element.id + ' li.selected').invoke('removeClassName', 'selected')
       this.selectedItems = new Array(element)
       element.addClassName('selected')
     }
@@ -261,7 +261,7 @@ MatrixView.prototype = {
   selectAll: function()
   {
     this.deselectAll()
-    $$('li').each(
+    $$('#' + this.element.id + ' li').each(
       function(el) {
         el.addClassName('selected')
         window.matrixView.selectedItems.push(el)
@@ -276,7 +276,7 @@ MatrixView.prototype = {
   selectFirst: function()
   {
 
-    element = $$('#matrixView li').first()
+    element = $$('#' + this.element.id + ' li').first()
 
     this.deselectAll()
     this.select(element)
@@ -290,7 +290,7 @@ MatrixView.prototype = {
 
   selectLast: function()
   {
-    element = $$('#matrixView li').last()
+    element = $$('#' + this.element.id + ' li').last()
 
     this.deselectAll()
     this.select(element)
@@ -305,7 +305,7 @@ MatrixView.prototype = {
   moveLeft: function(event)
   {
     event.stop()
-    element = $$('li.selected').first()
+    element = $$('#' + this.element.id + ' li.selected').first()
     if (!element)
       return this.selectFirst()
     if (previousElement = element.previous())
@@ -320,7 +320,7 @@ MatrixView.prototype = {
   moveRight: function(event)
   {
     event.stop()
-    element = $$('li.selected').last()
+    element = $$('#' + this.element.id + ' li.selected').last()
     if (!element)
       return this.selectFirst()    
     if (nextElement = element.next())
@@ -336,7 +336,7 @@ MatrixView.prototype = {
   {
     event.stop()
 
-    element = $$('li.selected').first()
+    element = $$('#' + this.element.id + ' li.selected').first()
     if (!element) return this.selectFirst()
 
     offset = Position.cumulativeOffset(element)
