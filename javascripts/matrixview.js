@@ -217,7 +217,7 @@ MatrixView.prototype = {
       // If the element is already selected, deselect it
       if (element.hasClassName('selected'))
       {
-        this.selectedItems[this.selectedItems.indexOf(element)] = null
+        this.selectedItems = this.selectedItems.without(element)
         element.removeClassName('selected')
       }
 

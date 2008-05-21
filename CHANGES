@@ -1,6 +1,8 @@
 *1.0.4* (Not Released)
 
- - 
+ - Fixed an issue where deselecting a single item would not actually remove
+   the item from the selectedItems array. Thanks to Jamie Wilson for reporting
+   this along with the fix.
 
 *1.0.3* (March 27th, 2008)
 
