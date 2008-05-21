@@ -1,5 +1,8 @@
 *1.0.4* (Not Released)
 
+ - Fixed an issue where scrolling the selected item into view would not occur
+   unless your element had the id of "matrixView".
+
  - Fixed an issue where deselecting a single item would not actually remove
    the item from the selectedItems array. Thanks to Jamie Wilson for reporting
    this along with the fix.

@@ -480,7 +480,7 @@ MatrixView.prototype = {
 
   scrollIntoView: function(element, direction)
   {
-    scrollingView = $('matrixView')
+    scrollingView = this.element
     if (direction == 'down' || direction == 'right')
     {
       if ((Position.page(element)[1] + element.getHeight()) >= (scrollingView.getHeight() + Position.cumulativeOffset(scrollingView)[1]))
