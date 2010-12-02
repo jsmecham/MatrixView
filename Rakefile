@@ -12,8 +12,6 @@ Rake::PackageTask.new('matrixview', MATRIX_VIEW_VERSION) do |package|
     'examples/**/**',
     'javascripts/**',
     'stylesheets/**',
-    'images/**',
-    'index.html',
     'LICENSE',
     'CHANGES',
     'TODO'

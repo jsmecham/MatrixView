@@ -56,7 +56,7 @@ MatrixView.prototype = {
     element.insert('<div id="selectionArea" style="display: none"></div>')
 
     // Observe keys
-    Event.observe(document, 'keypress',
+    Event.observe(document, 'keydown',
       function(event)
       {
 
@@ -302,7 +302,7 @@ MatrixView.prototype = {
       // If the element is already selected, deselect it
       if (element.hasClassName('selected'))
       {
-        this.selectedItems[this.selectedItems.indexOf(element)] = null
+        this.selectedItems = this.selectedItems.without(element)
         element.removeClassName('selected')
       }
 
@@ -317,7 +317,7 @@ MatrixView.prototype = {
     // Single Selection (Single Click)
     else
     {
-      $$('li.selected').invoke('removeClassName', 'selected')
+      $$('#' + this.element.id + ' li.selected').invoke('removeClassName', 'selected')
       this.selectedItems = new Array(element)
       element.addClassName('selected')
     }
@@ -346,7 +346,7 @@ MatrixView.prototype = {
   selectAll: function()
   {
     this.deselectAll()
-    $$('li').each(
+    $$('#' + this.element.id + ' li').each(
       function(el) {
         el.addClassName('selected')
         window.matrixView.selectedItems.push(el)
@@ -361,7 +361,7 @@ MatrixView.prototype = {
   selectFirst: function()
   {
 
-    element = $$('#matrixView li').first()
+    element = $$('#' + this.element.id + ' li').first()
 
     this.deselectAll()
     this.select(element)
@@ -375,7 +375,7 @@ MatrixView.prototype = {
 
   selectLast: function()
   {
-    element = $$('#matrixView li').last()
+    element = $$('#' + this.element.id + ' li').last()
 
     this.deselectAll()
     this.select(element)
@@ -390,7 +390,7 @@ MatrixView.prototype = {
   moveLeft: function(event)
   {
     event.stop()
-    element = $$('li.selected').first()
+    element = $$('#' + this.element.id + ' li.selected').first()
     if (!element)
       return this.selectFirst()
     if (previousElement = element.previous())
@@ -405,7 +405,7 @@ MatrixView.prototype = {
   moveRight: function(event)
   {
     event.stop()
-    element = $$('li.selected').last()
+    element = $$('#' + this.element.id + ' li.selected').last()
     if (!element)
       return this.selectFirst()    
     if (nextElement = element.next())
@@ -421,7 +421,7 @@ MatrixView.prototype = {
   {
     event.stop()
 
-    element = $$('li.selected').first()
+    element = $$('#' + this.element.id + ' li.selected').first()
     if (!element) return this.selectFirst()
 
     offset = Position.cumulativeOffset(element)
@@ -565,7 +565,7 @@ MatrixView.prototype = {
 
   scrollIntoView: function(element, direction)
   {
-    scrollingView = $('matrixView')
+    scrollingView = this.element
     if (direction == 'down' || direction == 'right')
     {
       if ((Position.page(element)[1] + element.getHeight()) >= (scrollingView.getHeight() + Position.cumulativeOffset(scrollingView)[1]))

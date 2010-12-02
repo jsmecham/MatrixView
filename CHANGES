@@ -3,20 +3,30 @@
  - Added drag-select support (e.g. click and drag your mouse to make a
    selection).
 
- - 
+*1.0.4* (Not Released)
 
+ - Fixed an issue where scrolling the selected item into view would not occur
+   unless your element had the id of "matrixView".
 
+ - Fixed an issue where deselecting a single item would not actually remove
+   the item from the selectedItems array. Thanks to Jamie Wilson for reporting
+   this along with the fix.
 
-*1.0.2* (Not Released)
+*1.0.3* (March 27th, 2008)
+
+ - Fixed some issues with scoping that could have led to unintended behavior
+   on pages that had other HTML unordered lists that were not being managed by
+   MatrixView.
+
+ - Fixed an issue with a recent change that went into the Safari 3.1 release
+   that prevented the arrow keys from being detected when they were pressed.
+
+*1.0.2* (February 12th, 2008)
 
  - The deleteHandler now works as expected. Turns out "delete" is a reserved
    word in JavaScript, so the internal delete function was renamed to destroy.
    Also added listeners for the standard delete key code as well as Safari's
    crazy delete key code.
-
- - 
-
-
 
 *1.0.1* (November 27th, 2007)
 
@@ -26,8 +36,6 @@
  - Replaced the images that were being used in the Photo Gallery example, as
    the ones used previously are no longer covered under a Creative Commons
    license. This change was also retroactively applied to the 1.0.0 package.
-
-
 
 *1.0.0* (November 16th, 2007)
 
